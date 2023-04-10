@@ -1,0 +1,13 @@
+<div>
+    <div>
+        <div *ngIf = "hasSignedIn == false && register == false" >
+            <app-login (registerEvent)="test()"></app-login>
+        </div>
+
+        <div *ngIf = "hasSignedIn == false && register == true" >
+            <app-register></app-register>
+        </div>
+    
+    </div>
+</div>
+

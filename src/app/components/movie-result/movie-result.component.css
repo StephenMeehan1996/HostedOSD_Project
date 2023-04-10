@@ -1,0 +1,139 @@
+
+.bigImg
+{
+    width:  85%;
+  
+}
+.smallImg
+{
+  width: 100%;
+}
+
+
+
+.noteImage{
+  width: 1rem;
+}
+.pencil{
+  position: relative;
+  margin-right: 80%;
+  
+}
+.arrow
+{
+  width: 20%;
+}
+.just
+{
+  padding: 2%;
+  margin-top: 5%;
+}
+.heading
+{
+  text-decoration: underline;
+  margin-bottom: 5%;
+}
+
+.con
+{
+  border: 1px solid white;
+  padding: 10%;
+}
+.sel
+{
+  min-width: 120px;
+}
+
+.like
+{
+  border-top: 1px solid white;
+}
+
+.like img
+{
+    width: 25px;
+    margin-right: 10px;
+}
+.like img:hover
+{
+    opacity: 0.7;
+    transform: translateY(-2px);
+    
+}
+
+.movie
+{
+  box-shadow: 0 0 5px black;
+  min-width: 180px;
+
+}
+.movie:hover
+{
+  cursor: pointer;
+  border: 1px solid white;
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+
+
+}
+
+/* for Mobile */
+
+.mobileImage
+{
+  min-width: 125px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .modal-content {
+    position: relative;
+  
+    margin: 15% auto; /* 15% from the top and centered */
+  
+    background: linear-gradient(to right,#2D3436, #2D3436, #2D3436, #414141);
+    border: 2px solid black;
+    width: 80%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 0 15px var(--clr-darkShade);
+    padding: 2%
+  }
+}
+.bi-chat-dots
+{
+  font-size: 2rem;
+  color: white;
+}
+
+.noResults{
+  position: relative;
+  width: 60%;
+  left: 0; 
+  right: 0; 
+  margin: 0 auto 2% auto;
+  text-align: center;
+  border: 2px solid black;
+  box-shadow: 0 0 15px var(--clr-darkShade);
+  padding: 5% 0;
+
+  
+
+}
+.noResults h6{
+  text-decoration: underline;
+  text-decoration-color: red;
+}
+.noResults img{
+  width: 2rem;
+}
+
+.delBtn
+{
+  position: absolute;
+  bottom: 5px;
+ 
+  width: 60%;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}

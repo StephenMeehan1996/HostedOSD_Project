@@ -1,0 +1,37 @@
+<div>
+  <div style="margin-bottom: 5%;">
+    <table class="table text-white mb-3">
+        <thead class="thead-dark">
+          <tr  class="table-dark text-white">
+            <th scope="col">Title</th>
+            <th scope="col">User</th>
+            <th scope="col">Description</th>
+            <th scope="col">Creation Date</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let l of Lists">
+          <tr *ngIf="l.user != user" class = "listRow" (click) = "GetListMovies(l._id, l.title)" >
+            <td>{{l.title}}</td>
+            <td>{{l.user}}</td>
+            <td>{{l.description}}</td>
+            <td>{{l.creation_date}}</td>
+          </tr>
+     
+        </tbody>
+      </table>
+    </div>
+      <div *ngIf="showList">
+        <div class="row text-center">
+              <h3 class = "text-decoration-underline mb-5">{{title}}</h3>
+        </div>
+        <div class = "row justify-content-center">
+          <div class="col-3 mb-3 mov" *ngFor="let m of movieList" >
+            <app-movie-result [movie]="m" [flag] = "flag"></app-movie-result>
+         </div>
+
+        </div>
+       
+     </div>
+
+      </div>
+

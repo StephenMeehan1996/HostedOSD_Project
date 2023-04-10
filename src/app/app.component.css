@@ -1,0 +1,109 @@
+.contain
+{
+    background: linear-gradient(to right,#2D3436, #2D3436, #2D3436, #414141);
+}
+
+.header
+{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 2%;
+    border: 1px solid white;
+}
+.header h3
+{
+    font-family: 'Permanent Marker', cursive;
+    text-decoration: underline;
+}
+.button
+{
+    
+    max-width: 60%;
+   
+}
+.button img
+{
+    width: 20%;
+    min-width: 25px;
+    max-width: 100px;
+    
+}
+.icon
+{
+    text-align: center;
+    padding: 1%;
+  
+}
+.icon img
+{
+    width: 2%;  
+    min-width: 40px;  
+}
+.foot
+{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+   border-top: 1px solid white;
+    margin: 3% 0 0 0 ;
+    padding: 2% 1% 1% 1%;
+    line-height: 10px;
+    
+}
+
+.border
+{
+    width: 20%;
+    margin: 0 auto;
+    border: 1px solid white;
+    padding: 1%;
+}
+.settingsIcon
+{
+    position: absolute;
+    right: 0;
+}
+
+.settingsSideBar
+{
+    position: absolute;
+    right: 0;
+    width: 13%;
+    min-width: 130px;
+  
+    background-color: #383737;
+    border: 1px solid white;
+   
+    padding: 2% 0 5% 0;
+    
+}
+
+.settingsSideBar ul li
+{
+  list-style: none;
+  color: white;
+  margin-bottom: 8%;
+
+}
+
+.settingsSideBar ul li:hover
+{
+ text-decoration: underline;
+}
+.bi-chat-left-dots,.bi-house-door,.bi-search
+{
+    font-size: 1.5rem;
+    color: white;
+    
+    
+}
+
+@media only screen and (max-width: 580px) {
+    .settingsIcon
+{
+    position: relative;
+    left: 0;
+    max-width: 27%;
+    
+}
+  }

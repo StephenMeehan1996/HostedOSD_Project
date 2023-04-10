@@ -1,0 +1,60 @@
+<div class="container mb-5 pt-3 comment">
+    <div class="d-flex justify-content-center row">
+        <div class="d-flex flex-column col-md-10">
+            <div class="d-flex flex-row align-items-center text-left comment-top  border-bottom ">
+                <div class="profile-image d-flex flex-column align-items-center justify-content-center">
+                <img  src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" class="mx-3 p-2" width="70">
+              
+                </div>
+
+                <div class="d-flex flex-column ml-1">
+                    <div class="d-flex flex-row post-title">
+                        <h5>{{movie.title}}</h5>
+                        
+                    </div>
+                    <div *ngIf="comments.length == 0" class="d-flex flex-row align-items-center align-content-center post-title"><span class="bdge mr-1">Movie</span><span class="mr-2 comments mx-3">0 Comments&nbsp;</span></div>
+                    <div *ngIf="comments.length > 0" class="d-flex flex-row align-items-center align-content-center post-title"><span class="bdge mr-1">Movie</span><span class="mr-2 comments mx-3">{{comments.length}} Comments&nbsp;</span></div>
+                </div>
+            </div>
+            <div class="coment-bottom ">
+                <form [formGroup]="commentForm" (ngSubmit)="postComment()" class = " p-2 px-4 mb-4" style="border-bottom: 1px solid white;">
+                    <div class="d-flex flex-row add-comment-section mt-4 mb-4"  >
+                        <img class="img-fluid img-responsive rounded-circle mr-2 mx-1" src="{{profilePic}}" width="38">
+                        <input  formControlName = "commentBody" type="text" class="form-control mr-3" placeholder="Add comment">
+                        <button class="btn btn-primary mx-3" type="submit">Comment</button>
+                    </div>
+
+                </form>
+              <div *ngFor="let c of comments" class = "bg-dark px-3 pt-2 mb-3 bottom">
+                <div class="commented-section mt-2" >
+                    <div class="d-flex flex-row align-items-center commented-user">
+                        <img class="img-fluid img-responsive rounded-circle" src="{{c.profilePic}}" width="38">
+                        <h5 class="mx-2">{{c.user}}</h5><span class="dot mb-1 mx-2"></span><span class="mb-1 ">{{getTimeDiff(c.date)}}</span></div>
+                    <div class="comment-text-sm"><span>{{c.commentBody}}</span></div>
+               </div>
+        <div class = "row justify-content-center my-2" >
+            <div class="reply-section col-3">
+                <div class="d-flex flex-row align-items-center voting-icons">
+                   
+
+                        <i class="bi bi-hand-thumbs-up-fill" (click)="updateVotes(c._id,'up', c)"></i>
+                        <p><span class="ml-2">{{c.likes}} </span></p>
+
+                        <i class="bi bi-hand-thumbs-down-fill" (click)="updateVotes(c._id,'down', c)"></i>
+
+                 
+                    <button *ngIf="c.user == signedInUser" class="btn btn-sm btn-danger mx-3" (click) = "DeleteComment(c._id)" >Delete</button>
+            </div>
+        </div>
+   
+
+        </div>
+       
+       </div>
+       
+        
+    
+</div>
+</div>
+</div>
+</div>

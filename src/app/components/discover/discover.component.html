@@ -1,0 +1,19 @@
+<div class="discover">
+    <Button class = "btn btn-danger close" (click)="close()" >&#10005;</Button>
+    <div class = "">
+        <div class = "d-flex justify-content-center p-5" >
+           
+            <div class = "col-4">
+                <div cdkDrag cdkDragLockAxis="x" (cdkDragEnded)="onDragEnd($event)">
+                    <app-movie-result [movie]="movies[index]"  [flag] = "flag"></app-movie-result>
+                   
+            </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+        

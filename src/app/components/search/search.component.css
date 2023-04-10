@@ -1,0 +1,61 @@
+.searchBorder{
+    background-color: #414141;
+    border: 1px solid white;
+    padding:  2% 1% 2% 2%;
+    margin: 0 30% 5% 30%;
+    border-radius: 15px;
+    box-shadow: 0 0 5px black;
+}
+.box
+{
+    padding: 3%;
+}
+
+#divider
+{
+    border-bottom: 1px solid white;
+    margin-bottom: 4%;
+}
+
+.pageControl
+{
+  
+    text-align: center;
+ 
+}
+.pageControl ul li 
+{   display: inline;
+    color: white;
+    font-weight: bold;
+    list-style-type: none;
+    margin-right: 2%;
+}
+
+.pageControl ul li:hover
+{
+    text-decoration: underline;
+}
+
+.contain
+{
+  margin-bottom: 2%;
+  min-width: 300px;
+  position: relative;
+  
+}
+.contentM
+{
+    position: relative;
+    margin: 1% auto; /* 15% from the top and centered */
+    background: linear-gradient(to right,#2D3436, #2D3436, #2D3436, #414141);
+    border: 2px solid black;
+    width: 90%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 0 15px var(--clr-darkShade);
+    height: 1000px;
+    
+
+}
+.mov
+{
+    min-width: 100px;
+}

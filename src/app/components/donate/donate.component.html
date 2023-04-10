@@ -1,0 +1,47 @@
+
+
+<div *ngIf="!showThanks">
+    <div>
+        <h3 class = "text-center text-white">Donations</h3>
+        <p class="text-white">We believe that movies have the power to bring people together and create positive change in the world. 
+            That's why we're calling on our users to join us in making a 
+            difference by donating to our company to allow us provide this application for free.</p>
+    </div>
+    <div class="row justify-content-center">
+        <div class=" col-6">
+            <div class = "input-group mb-3">
+                <span class="input-group-text">€</span>
+                <input type="text" class="form-control" placeholder="0.00" 
+                aria-label="Amount (to the nearest dollar)" 
+                (input)="updateAmount($event)"
+                type="number">
+                <span class="input-group-text">.00</span>
+              </div>
+              <div class="row justify-content-center">
+
+                <div class="col-md-5">
+                    <button (click)="makePayment()" class="btn btn-success btn-block">€{{amount}}</button>
+                  </div>
+
+              </div>
+            </div>
+           
+
+    </div>
+
+   
+    
+</div>
+
+<div *ngIf="showThanks">
+    <div>
+        <h3 class = "text-center text-white">Donations</h3>
+        <h3 class="text-white">Payments Successful, Thank you!</h3>
+    </div>
+   
+
+   
+    
+</div>
+
+

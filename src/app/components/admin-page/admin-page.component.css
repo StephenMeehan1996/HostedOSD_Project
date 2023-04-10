@@ -1,0 +1,40 @@
+.contain
+{
+    padding: 3%;
+    border: 1px solid white;
+    margin-bottom: 5%;
+    width: 90%;
+    margin: 0 auto 2% auto;
+    box-shadow: 0 0 5px white;
+}
+.statsContain
+{
+    width: 70%;
+    margin: 0 auto;
+    border: 1px solid white;
+}
+
+.mat-tab-label {
+    min-width: 25px !important;
+    padding: 5px;
+    color: white;
+
+}
+.listsRow:hover
+{
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+/* Styles for the active tab label */
+
+
+/* Styles for the ink bar */
+.mat-ink-bar {
+    background-color: red;
+}
+
+.mov
+{
+    min-width: 250px;
+}

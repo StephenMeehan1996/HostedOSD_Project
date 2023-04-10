@@ -1,0 +1,39 @@
+<div class="container mt-4 mb-4 commentWall">
+  <div class="d-flex justify-content-center row ">
+      <div class="d-flex flex-column col-md-12 commentWall postBody">
+          <div class="d-flex flex-row align-items-center text-left comment-top  border-bottom ">
+              <div class="profile-image"><img class="rounded-circle" src="{{post.postImage}}" width="70"></div>
+              <div class="d-flex flex-column-reverse flex-grow-0 align-items-center votings mx-3" >
+                <i class="fa fa-sort-up fa-2x hit-voting" (click)="ChangeVotePost('Add')" ></i>
+                <span>{{post.voteCount}}</span>
+                <i class="fa fa-sort-down fa-2x hit-voting" (click)="ChangeVotePost('Remove')"></i>
+              </div>
+
+              <div class="d-flex flex-column ml-5">
+                  <div class="row post-title">
+                      <h4>{{post.postTitle}}</h4>
+                      <p>{{post.postContent}}</p>
+                  </div>
+                  <div class="d-flex flex-row align-items-center align-content-center post-title">
+                    <span class="mr-2 comments mx-3">13 comments&nbsp;</span>
+                    <span class="mr-2 dot mx-1"></span><span>6 hours ago</span>
+                  </div>
+              </div>
+             
+             
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <i class="bi bi-chat-left-text-fill my-3" (click)="post.displayComments =! post.displayComments"></i>
+          </div>
+          
+          <app-comment *ngIf="post.displayComments" [post]="post"></app-comment>
+     
+</div>
+</div>
+</div>
+
+
+
+
+

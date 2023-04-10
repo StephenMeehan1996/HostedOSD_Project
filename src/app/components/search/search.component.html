@@ -1,0 +1,61 @@
+<div  class="text-white box">
+  
+    <div class = "searchBorder row justify-content-center">
+        <div class = "col-8 md-10">
+          <input type="text" #searchTerm style="width: 100%;">
+        </div>
+         
+          <div class = "buttonDiv col">
+            <button class=" btn btn-success" (click)="Search(searchTerm.value, 0)" >Search</button>
+          </div>
+    </div>
+    <div id="divider">
+      <div class = "row justify-content-left" >
+        <div class = "col">
+          <button class=" btn btn-dark me-3" (click)="Search('GetAll', 1)"  style="display: inline-block;">Get Top Movies</button>
+          <button class=" btn btn-dark me-3" (click)="SearchLists()" style="display: inline-block;">Get User Lists</button>
+          <button class=" btn btn-dark" (click)="displayDiscover()" style="display: inline-block;">Discover</button>
+        </div>
+        
+
+    </div>
+    </div>
+
+   <div class="col">
+    
+<div *ngIf="showpage">
+     <div >
+    
+
+        <div class = "row justify-content-center">
+          <div class="col-3 mb-3 mov" *ngFor="let m of movieData.results" >
+            <app-movie-result [movie]="m" [flag] = "flag"></app-movie-result>
+         </div>
+      </div>
+    </div>
+  </div>
+
+    <div *ngIf="showList">
+      <app-search-lists [Lists] = "Lists"></app-search-lists>
+    </div>
+</div>
+
+<div class = "pageControl relative-bottom" *ngIf="showpage">
+    <ul>
+      <li (click)="Search('GetAll', 1)">1</li>
+      <li (click)="Search('GetAll', 2)">2</li>
+      <li (click)="Search('GetAll', 3)">3</li>
+      <li (click)="Search('GetAll', 4)">4</li>
+      <li (click)="Search('GetAll', 5)">5</li>
+    </ul>
+</div>
+
+<div *ngIf="discover">
+  <div class = "modal-Background">
+  <div class = "contentM">
+      <app-discover (closeDiscover)="displayDiscover()"></app-discover>
+  </div>
+</div>
+
+
+

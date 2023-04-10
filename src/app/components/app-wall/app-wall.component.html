@@ -1,0 +1,206 @@
+      
+         
+    <div class = "row justify-content-center text-white listBox" style="text-align: center;">
+        <div class = "col-5">
+                <div class ="col">
+                    <h4>Your lists</h4>
+                    <select #list class="form-select listBox" aria-label="Default select example">
+                      <option selected>All</option>
+                        <option *ngFor="let l of Lists" [value]="l._id">{{l.title}}</option>
+                    </select>
+                  </div>
+            <div class = "row justify-content-center">
+                <div class="col-4" style="min-width: 180px;">
+                  <button class="btn btn-dark button" (click)="getMovies(list.value)">Fetch List</button>
+                </div>
+                <div class="col-4" style="min-width: 180px;">
+                    <button class="btn btn-dark button" (click)="closeCreateList()">Create New List</button>
+                </div>
+            </div>
+            <div class = "row justify-content-center" style="margin-top: 5%;">
+                <div class="col-4">
+                    <p>Filter by rating</p>
+                   <input type="text" name="" id="fil" #rating (change)="getFilteredRating(rating.value, list.value)">
+                   <button class="btn btn-dark"(click)="getFilteredRating(rating.value, list.value)">Filter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="showCreateList">
+
+        <app-create-list (close)="closeCreateList()" (refreshLists)="GetList()"></app-create-list>
+
+    </div>
+ 
+
+        <div class ="row justify-content-center" *ngIf="hasSearched">
+                <!-- <div class="col-2 mb-3 mov" *ngFor="let m of movieList" >
+                    <app-movie-result [movie]="m" [flag] = "flag" (newItemEvent)=" refreshMovies(list.value)" ></app-movie-result>
+                </div> -->
+
+                <div class = "row justify-content-center">
+                    <div class="col-3 mb-3 mov" *ngFor="let m of movieList" >
+                      <app-movie-result [movie]="m" [flag] = "flag" (newItemEvent)=" refreshMovies(list.value)"></app-movie-result>
+                   </div>
+            </div>
+            </div>
+
+
+                 
+                <!-- <div *ngIf="!m.showDetail" (click) = "getDetails(m)">
+                    <div>
+                        <img src="https://image.tmdb.org/t/p/original/{{m.poster_path}}" class = "movie" style="width: 90%;"alt="">
+                    </div>
+                   
+                </div>
+                 -->
+                <!-- <div *ngIf="m.showDetail">
+                    <div class =  "modal-Background">
+                       
+                           
+                            <div class = "row justify-content-center bg-dark detail detailScreen"> 
+                               
+                                <div class="col text-center">
+                                  
+                                        <Button class = "btn btn-danger position-absolute top-0 end-0" (click)="m.showDetail = false" >&#10005;</Button>
+                                
+                                    <img src="https://image.tmdb.org/t/p/original/{{m.poster_path}}" style="width: 65%; border: 0.5px solid white; margin-bottom: 5%;"alt="">
+                                    <h4 style="text-align: center;" *ngIf="m.rating.$numberDecimal > 0">Your Rating: {{m.rating.$numberDecimal}}</h4>
+                                    <h4 style="text-align: center;"*ngIf="m.rating.$numberDecimal == 0">Your Rating: No rating yet</h4>
+                                </div>
+                                <div class="col">
+                                   <h3 >{{m.title}}</h3>
+                                   <p> {{m.release_date}} </p>
+
+                                   <div *ngFor="let c of crew" >
+                                    <div  *ngIf="c.job == 'Director'" class="row">
+                                      
+                                        <div class = "col-12 text-center text-align-right">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <img src="https://image.tmdb.org/t/p/original/{{c.profile_path}}" style=" width:100%; border: 1px solid white; width: 80px;" alt="">
+                                                   </div>
+                                                   <div class="col">
+                                                    <h3>{{c.name}} {{c.job}} </h3>
+                                                   </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                        
+                                </div>
+                                <div class = "d-none d-xxl-block">
+                                   <p class = "mt-2"  >{{m.overview}}</p>
+                                   
+                                    <i class="pencil">
+                                        <img src="../../../assets/images/pencil.png" alt="" class = "noteImage">
+                                    </i>
+                                    <textarea disabled class="md-textarea form-control"  rows="3" value="{{m.note}}" ></textarea>
+                                </div>
+
+                                <div class = "d-block d-xxl-none">
+                                    <p class = "overview mt-2" (click)="m.showFullOverView = true">{{m.overview | slice:0:130}}...</p>
+                                    
+                                     <i class="pencil">
+                                         <img src="../../../assets/images/pencil.png" alt="" class = "noteImage">
+                                     </i>
+                                     <textarea disabled class="md-textarea form-control"  rows="3" value="{{m.note}}" ></textarea>
+                                 </div>
+                                 
+                                  <div class = "row justify-content-center" style="margin-top: 5%;" >
+                                    <div class = "col-6 " >
+                                        <div class="row px-5">
+                                            <button class="btn btn-secondary" (click)="showEditDetails(m)">Edit</button>
+
+                                        </div>
+                                       
+                                    </div>
+                                    <div class = "col-6">
+                                        <div class="row px-5">
+                                            <button class = "btn btn-danger" (click)="deleteItem(m._id, list.value)">Delete</button>
+
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                
+                                </div>
+                              
+                                <div  style="margin-top: 2%;" >
+                                   
+                                     <app-cast-crew [movieID]="m.imdb_id" ></app-cast-crew>
+                                    
+                                    
+                                </div>
+                                <div class = "row text-center">
+                                    <div class = "like pt-1">
+                                        <img src="../../../assets/images/comment.png" alt="" (click)="DisplayComments()">
+                                   </div>
+                
+                                </div>
+                              
+                                <div *ngIf="displayComments">
+                                    <app-movie-comment-section [movie] = "m"></app-movie-comment-section>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                    </div> -->
+                  
+
+                    <!-- <div>
+
+                        <div *ngIf="m.showFullOverView">
+                            <div class = "modal-Background">
+                                <div class="modal-content editDetails">
+                                    <Button class = "btn btn-danger close" (click)="m.showFullOverView = false" >&#10005;</Button>
+                                    <div class = "over">
+                                        <h6 style="text-decoration: underline;">Overview:</h6>
+                                        <p>
+                                            {{m.overview}}
+                                        </p>
+                                  </div>
+                             </div>
+                         </div>
+                    </div>
+                                        
+                  
+        
+                </div>
+                <div *ngIf="m.showEditDetail">
+                    <div class = "modal-Background">
+                        <div class="modal-content editDetails">
+                            <Button class = "btn btn-danger close" (click)="showEditDetails(m)" >&#10005;</Button>
+                            <div class = "container edit">
+                                <div class="col">
+                                    <div class = "row">
+                                     <input type="text" value="{{m.rating.$numberDecimal}}" #newRating>
+                                    </div>
+                                    <div *ngIf="formError" class = "error">
+                                        <h6>Rating can only be between 1 and 10</h6>
+                                    </div>
+                                    <div class = "row">
+                                        <div >
+                                            <i class="pencil">
+                                                <img src="../../../assets/images/pencil.png" alt="" class = "noteImage">
+                                            </i>
+                                            <textarea class="md-textarea form-control" style="resize: none; height: 80px; background-color: white; "  rows="3" value="{{m.note}}" #newNote></textarea>
+                                          </div>
+                                    </div>
+                                    <div class = "row" style = "padding: 0 15% 0 15%; margin-top: 10%">
+                                        <button class = "btn btn-dark" (click)="UpdateItem(m, newRating.value, newNote.value, m._id, list.value)">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        </div>
+                    </div> -->
+            
+    
+
+   
+
+
+

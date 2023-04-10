@@ -1,0 +1,29 @@
+<div class = "modal-Background">
+    <div class="modal-content">
+        <Button class = "btn btn-danger close" (click)="Close()" >&#10005;</Button>
+
+        <div class = "container content">
+            <div class = "row">
+            <form [formGroup]="createList" (ngSubmit) = "onSubmit(profileJson.name)" class="form-group text-white form">
+                <div class="mb-md-5 mt-md-4 pb-5">
+              
+                  <div class="form-outline form-white mb-4">
+                    <label class="form-label" for="typeTitle">List Title</label>
+                    <input type="text" id="title"  formControlName="title" class="form-control" />
+              
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <label class="form-label" for="typeDescription">Description</label>
+                    <input type="text" id="typeDescription"  formControlName="description" class="form-control" style="margin-bottom: 20%;" />
+                  </div>
+            
+                <div class = "row">
+                  <button class="btn btn-dark" [disabled]= "!createList.valid"  type="submit" >Create List</button>
+                </div>
+           
+                </div>
+              </form>
+    </div>
+    </div>
+</div>
+

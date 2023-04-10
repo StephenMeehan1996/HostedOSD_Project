@@ -1,0 +1,186 @@
+<div style="margin: 2% 0 2% 0">
+    <div class="row justify-content-center text-white text-center">
+        <div class="col">
+            <h2 class = "text-decoration-underline">Welcome back {{name}}</h2>
+    
+        </div>
+       
+    </div>
+</div>
+<div class="col statsContain bg-dark text-white mb-5">
+    <mat-tab-group animationDuration="0ms" class = "text-white">
+        <mat-tab label="Movie Lists">
+            <h4 class="my-3 text-center text-decoration-underline">Movie Lists: {{Lists.length}} </h4>
+            <div class = "col mt-3">
+                <div class = "col">
+                    <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">User</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Date Created</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let l of Lists" class = "listsRow" (click) = "ShowList(l)">
+                            <td >
+                                
+                                {{l.user}}</td>
+                            <td >{{l.title}}</td>
+                            <td >{{l.description}}</td>
+                            <td>{{l.creation_date}}</td>
+                            <td>
+                             
+                            </td>
+                         
+                            </tr>
+                        
+                        </tbody>
+                      </table>
+                  
+                </div>
+            </div>
+          
+        
+          </mat-tab>
+    
+        
+      <mat-tab label="Board Posts">
+        <h4 class="my-3 text-center text-decoration-underline">Board Posts: {{posts.length}} </h4>
+        <div class = "col mt-3">
+            <div class = "col">
+                <div *ngFor="let c of posts">
+                    <div class = "contain">
+
+                    
+                    <div class = "d-flex">
+                        <div style="margin-right: 3%;">
+                            <img src="{{c.postImage}}" alt="" style="width: 4rem;">
+                            <h4>{{c.date | date}}</h4>
+                        </div>
+
+                        <div class = " ">
+                            <h5>{{c.user}}</h5>
+                            <p>{{c.postTitle}}</p>
+                            <p>{{c.postContent}}</p>
+                            
+                         
+                        </div>
+                        
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class = "col-3 text-center">
+                            <button class = "btn btn-danger" (click)="deletePost(c._id)">Delete Post</button>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+      
+    
+      </mat-tab>
+      <mat-tab label="Board Comments" class="text-white">
+        <h4 class="my-3 text-center text-decoration-underline">Board Comments: {{allComments.length}} </h4>
+        <div class = "col mt-3">
+            <div class = "col">
+                <div *ngFor="let c of allComments">
+                    <div class = "contain">
+
+                  
+                    <div class = "d-flex">
+                        <div style="margin-right: 3%;">
+                            <img src="{{c.profilePic}}" alt="" style="width: 4rem;">
+                            <h4>{{c.date | date}}</h4>
+                        </div>
+
+                        <div class = " ">
+                            <h5>{{c.user}}</h5>
+                            <p>{{c.CommentContent}}</p>
+                           
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class = "col-3 text-center">
+                            <button class = "btn btn-danger" (click)="deleteComment(c._id)">Delete comment</button>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Movie Comments">
+        <h4 class="my-3 text-center text-decoration-underline">Board Comments: {{mComments.length}} </h4>
+        <div class = "col mt-3">
+            <div class = "col">
+                <div *ngFor="let c of mComments">
+                    <div class = "contain">
+
+                  
+                    <div class = "d-flex">
+                        <div style="margin-right: 3%;">
+                            <img src="{{c.profilePic}}" alt="" style="width: 4rem;">
+                            <h4>{{c.date | date}}</h4>
+                        </div>
+
+                        <div class = " ">
+                            <h5>{{c.user}}</h5>
+                            <p>{{c.commentBody}}</p>
+                           
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class = "col-3 text-center">
+                            <button class = "btn btn-danger" (click)="deleteMComment(c._id)">Delete comment</button>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+      </mat-tab>
+     
+      </mat-tab-group>
+      </div>
+
+      <div class = "modal-Background " *ngIf="this.showList == true">
+        <div class="modal-content text-white">
+            <Button class = "btn btn-danger close" (click)="this.showList = false" >&#10005;</Button>
+            <div>
+                <div class="row text-center">
+                    <h2 class = "text-decoration-underline my-4">{{tempList.title}}</h2>
+              </div>
+              <div class="row justify-content-center text-left text-white">
+                <div class = "col-10 px-5">
+                <p><strong>User:</strong>  {{tempList.user}}</p>
+                <p> <strong>List Name:</strong> {{tempList.title}}</p>
+                <p><strong>Date Created:</strong>  {{tempList.creation_date}}</p>
+
+                </div>
+                
+          </div>
+              <div>
+                <div class = "row justify-content-center">
+                  <div class="col-1 mb-3 mov" *ngFor="let m of movieList" >
+                    <app-movie-result [movie]="m" [flag] = "flag" (newItemEvent)=" refreshMovies(tempList._id)"></app-movie-result>
+                 </div>
+              </div>
+            </div>
+              <div class="row justify-content-center text-center my-3">
+                <div class = "col-3">
+                    <button class = "btn btn-danger" (click)="deleteList(tempList._id)">Delete List</button>
+                </div>
+
+            </div>
+            </div>
+            </div>
+            </div>
+
+
+     

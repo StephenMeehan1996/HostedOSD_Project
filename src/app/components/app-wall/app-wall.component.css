@@ -1,0 +1,130 @@
+/* .detail
+{
+    color: white;
+    box-shadow: 0 0 5px white;
+    padding: 15% 1% 10% 1%;
+    position: relative;
+    margin: 7% 0.1%;
+} */
+.detail h5
+{
+    text-decoration: underline;
+}
+.pics
+{
+    margin-bottom: 5%;
+    min-width: 300px;
+}
+.display
+{
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+.display img
+{
+    width: 15%;
+}
+
+.editDetails
+{
+    padding : 5%;
+}
+
+.listBox
+{
+    margin: 3%;
+    border-bottom: 1px solid white;
+    padding: 2%;
+}
+
+.listBox select
+{
+    margin: 3% 0 3% 0;
+}
+.listBox h4
+{
+   font-family: 'Permanent Marker', cursive;
+}
+.button
+{
+    margin-bottom: 10%;
+    min-width: 150px;
+}
+#fil
+{
+    width: 100%; margin: 0 auto;
+    margin-bottom: 10%;
+    min-width: 50px;
+}
+.listBox
+{
+    min-width: 50px;
+}
+.overview:hover
+{
+    border-bottom: 1px solid white;
+    opacity: 0.8;
+    cursor: pointer;
+
+}
+.over
+{
+    color: white;
+    border: 1px solid white;
+    padding: 10%;
+}
+.edit
+{
+    
+    border: 1px solid white;
+    padding: 10% 15%;
+    
+}
+
+.detailScreen
+{
+    width: 55%;
+    margin: 10% auto;
+    color: white;
+    box-shadow: 0 0 5px white;
+    position: relative;
+    padding: 3%
+}
+.like img
+{
+    width: 25px;
+    margin-right: 10px;
+}
+
+.movie
+{
+  box-shadow: 0 0 5px black;
+
+}
+.movie:hover
+{
+  cursor: pointer;
+  border: 1px solid white;
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+
+
+}
+
+@media only screen and (max-width: 600px) {
+    .modal-content {
+      position: relative;
+    
+      margin: 15% auto; /* 15% from the top and centered */
+    
+      background: linear-gradient(to right,#2D3436, #2D3436, #2D3436, #414141);
+      border: 2px solid black;
+      width: 80%; /* Could be more or less, depending on screen size */
+      box-shadow: 0 0 15px var(--clr-darkShade);
+      padding: 2%
+    }
+  }
+
+  .mov
+{
+    min-width: 250px;
+}
