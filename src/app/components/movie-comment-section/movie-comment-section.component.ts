@@ -56,7 +56,7 @@ export class MovieCommentSectionComponent implements OnInit {
     this.commentForm.controls['profilePic'].setValue(environment.picture);
     this.commentForm.controls['movieID'].setValue(this.movie._id);
     
-    alert(this.commentForm);
+  
 
     this._comments.postComment(this.commentForm).subscribe({
       next: (comment: any) => {

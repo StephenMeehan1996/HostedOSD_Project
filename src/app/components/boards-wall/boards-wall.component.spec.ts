@@ -6,7 +6,7 @@ import { BoardsWallComponent } from './boards-wall.component';
 import { Post } from 'src/app/interfaces/post';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-xdescribe('BoardsWallComponent', () => {
+describe('BoardsWallComponent', () => {
   let component: BoardsWallComponent;
   let fixture: ComponentFixture<BoardsWallComponent>;
   let boardsService: jasmine.SpyObj<BoardsService>;
