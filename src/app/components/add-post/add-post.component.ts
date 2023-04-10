@@ -48,7 +48,7 @@ export class AddPostComponent implements OnInit {
     this.PostForm.controls['postImage'].setValue(this.picture);
     console.log(this.PostForm.value);
 
-    alert(this.picture);
+  
 
     this._board.CreatePost(this.PostForm).subscribe({
       next: (post: any) => {

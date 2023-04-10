@@ -97,7 +97,7 @@ test(id: string)
     error: (mess: any) => this.message = mess
   })
 
-  alert("t")
+ 
   
 
 
